@@ -5,13 +5,13 @@ import { MapPanel } from "../components/map/MapPanel";
 import { AlertDetailModal } from "../components/alerts/AlertDetailModal";
 import { Modal } from "../components/common/Modal";
 import {
-  FilePlus,
   CheckCircle2,
   CloudSun,
-  Mountain,
-  Droplets,
+  Route,
   CloudRain,
   ClipboardList,
+  Truck,
+  MapPinned,
 } from "lucide-react";
 import {
   MOCK_ADVISORIES,
@@ -22,16 +22,17 @@ import {
 } from "../data/mockContent";
 
 const SERVICE_ICON_MAP = {
-  "Landslide Monitoring": Mountain,
-  "Hydrological Services": Droplets,
-  "Meteorological Risk": CloudRain,
+  "Route Disruption Prediction": Route,
+  "Weather Impact Analysis": CloudRain,
+  "Accessibility Forecasting": MapPinned,
   "Field Reporting": ClipboardList,
+  "Vehicle Tracking": Truck,
 };
 
 const SERVICE_LABEL_KEYS = {
-  "Landslide Monitoring": "service_landslide",
-  "Hydrological Services": "service_hydro",
-  "Meteorological Risk": "service_meteo",
+  "Route Disruption Prediction": "service_landslide",
+  "Weather Impact Analysis": "service_hydro",
+  "Accessibility Forecasting": "service_meteo",
   "Field Reporting": "service_field",
 };
 
@@ -67,7 +68,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
   const eventFeed =
     activeAlerts.length > 0
       ? activeAlerts.map((a) => ({
-          text: `Reviewed ***Risk Level: ${a.severity}, Location: ${a.source || a.title}, Date&Time: ${a.timeAgo || a.timestamp}`,
+          text: `Reviewed ***Accessibility: ${a.severity}, Location: ${a.source || a.title}, Date&Time: ${a.timeAgo || a.timestamp}`,
         }))
       : MOCK_EVENTS;
 
@@ -81,7 +82,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
 
   return (
     <div className="bg-[var(--gov-page-bg)]">
-      {/* Title bar – full width */}
+      {/* Title bar */}
       <div className="bg-[var(--gov-primary)] text-white px-4 py-2 flex items-center justify-between flex-wrap gap-2">
         <h2 className="text-[15px] font-semibold tracking-wide">
           {t("disasterMonitoringDashboard")}
@@ -107,7 +108,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
         </div>
       </div>
 
-      {/* Main grid – full bleed with padding */}
+      {/* Main grid */}
       <div className="w-full px-3 md:px-4 lg:px-5 py-3 grid grid-cols-1 xl:grid-cols-12 gap-3">
         {/* Map */}
         <div
@@ -135,8 +136,9 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
             <span>{t("advisories")}</span>
             <select className="bg-[var(--gov-accent-dark)] text-white text-[11px] border-0 outline-none px-1.5 py-0.5 rounded">
               <option>All</option>
-              <option>Landslide</option>
+              <option>Blocked Road</option>
               <option>Heavy Rain</option>
+              <option>Landslide</option>
               <option>Flood</option>
             </select>
           </div>
@@ -151,7 +153,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
                 >
                   <div className="flex items-center gap-1.5 mb-1">
                     <span className="bg-[var(--gov-yellow)] text-[var(--gov-text)] text-[10px] font-bold px-1.5 py-0.5 uppercase rounded">
-                      {a.type || a.severity || "LANDSLIDE"}
+                      {a.type || a.severity || "DISRUPTION"}
                     </span>
                     <span className="text-[11px] text-[var(--gov-text-muted)]">
                       {a.timeAgo || a.timeframe?.split("–")[0]}
@@ -198,7 +200,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
         </div>
       </div>
 
-      {/* Highlights ticker – full width */}
+      {/* Highlights ticker */}
       <div className="w-full px-3 md:px-4 lg:px-5">
         <div className="bg-[var(--gov-accent)] text-white flex items-center rounded-[var(--panel-radius)] overflow-hidden shadow-sm">
           <div className="bg-[var(--gov-accent-dark)] px-4 py-2 font-semibold text-[13px] shrink-0">
@@ -230,7 +232,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {MOCK_SERVICES.map((s) => {
-              const Icon = SERVICE_ICON_MAP[s.title] || Mountain;
+              const Icon = SERVICE_ICON_MAP[s.title] || Route;
               const labelKey = SERVICE_LABEL_KEYS[s.title];
               return (
                 <div
@@ -253,27 +255,34 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
         </div>
       </div>
 
-      {/* Remaining lower sections keep existing structure but use full-bleed padding */}
+      {/* Lower sections */}
       <div className="w-full px-3 md:px-4 lg:px-5 py-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-        {/* News / Social placeholders – kept for completeness */}
         <div className="bg-white border border-[var(--gov-border)] rounded-[var(--panel-radius)] p-4 shadow-sm">
-          <h3 className="font-semibold text-[14px] text-[var(--gov-primary)] mb-3">Latest Advisories & News</h3>
+          <h3 className="font-semibold text-[14px] text-[var(--gov-primary)] mb-3">
+            Latest Advisories & Logistics Updates
+          </h3>
           <div className="space-y-2 text-[13px]">
             {(MOCK_NEWS || []).slice(0, 4).map((n, i) => (
               <div key={i} className="border-b border-[var(--gov-border)] pb-2 last:border-0">
                 <p className="font-medium">{n.title || n.text}</p>
-                <p className="text-[12px] text-[var(--gov-text-muted)]">{n.date || n.source}</p>
+                <p className="text-[12px] text-[var(--gov-text-muted)]">
+                  {n.date || n.source}
+                </p>
               </div>
             ))}
           </div>
         </div>
         <div className="bg-white border border-[var(--gov-border)] rounded-[var(--panel-radius)] p-4 shadow-sm">
-          <h3 className="font-semibold text-[14px] text-[var(--gov-primary)] mb-3">Field Signals</h3>
+          <h3 className="font-semibold text-[14px] text-[var(--gov-primary)] mb-3">
+            Field Signals
+          </h3>
           <div className="space-y-2 text-[13px]">
             {filteredSocial.slice(0, 4).map((p, i) => (
               <div key={i} className="border-b border-[var(--gov-border)] pb-2 last:border-0">
                 <p>{p.text || p.content}</p>
-                <p className="text-[12px] text-[var(--gov-text-muted)]">{p.source} · {p.time}</p>
+                <p className="text-[12px] text-[var(--gov-text-muted)]">
+                  {p.source} · {p.time}
+                </p>
               </div>
             ))}
           </div>
@@ -326,7 +335,7 @@ export const HomeDashboard = ({ viewMode = "overview" }) => {
           />
           <button
             type="submit"
-            className="w-full bg-[var(--gov-primary)] text-white py-2 rounded font-medium hover:bg-[var(--gov-primary-mid)]"
+            className="w-full bg-[var(--gov-primary)] text-white py-2 rounded font-semibold text-sm"
           >
             Submit Report
           </button>

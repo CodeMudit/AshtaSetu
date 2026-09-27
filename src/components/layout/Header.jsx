@@ -15,6 +15,9 @@ import {
   Menu,
   X,
   Bell,
+  Truck,
+  Route,
+  MapPinned,
 } from "lucide-react";
 import { AboutModal } from "./AboutModal";
 
@@ -29,6 +32,8 @@ export const Header = () => {
     { id: "overview", labelKey: "nav_home", icon: Home },
     { id: "about", labelKey: "nav_about", icon: Info },
     { id: "risk-map", labelKey: "nav_dashboard", icon: LayoutDashboard },
+    { id: "accessibility", labelKey: "nav_accessibility", icon: MapPinned },
+    { id: "vehicles", labelKey: "nav_vehicles", icon: Truck },
     { id: "sources", labelKey: "nav_geoweb", icon: Layers },
     { id: "field-ops", labelKey: "nav_reports", icon: FileText },
     { id: "analytics", labelKey: "nav_resources", icon: FolderOpen },
@@ -52,7 +57,7 @@ export const Header = () => {
       <div className="bg-[var(--gov-sky)] text-[var(--gov-text)] text-[12px] px-4 py-1.5 flex flex-wrap items-center justify-between gap-2 border-b border-[var(--gov-border)]">
         <div className="flex items-center gap-3 flex-wrap">
           <span className="font-semibold tracking-wide">
-            {t("appName")} · SIH26001
+            {t("appName")} · SIH26002
           </span>
           <span className="opacity-50">|</span>
           <a href="#main" className="hover:underline text-[var(--gov-primary)]">
@@ -76,7 +81,7 @@ export const Header = () => {
         </select>
       </div>
 
-      {/* Brand header – full bleed */}
+      {/* Brand header */}
       <div className="bg-white border-b border-[var(--gov-border)] px-4 py-3">
         <div className="w-full flex items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
@@ -106,11 +111,11 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Nav – full bleed */}
+      {/* Nav */}
       <nav className="bg-[var(--gov-nav)] text-white sticky top-0 z-40 shadow-sm">
         <div className="w-full">
           <div className="hidden lg:flex items-center justify-between px-2">
-            <div className="flex items-stretch">
+            <div className="flex items-stretch overflow-x-auto">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activePage === item.id;
@@ -119,7 +124,7 @@ export const Header = () => {
                     key={item.id}
                     type="button"
                     onClick={() => handleNav(item.id)}
-                    className={`flex flex-col items-center justify-center px-3.5 py-2.5 text-[12px] font-medium border-b-[3px] transition-colors ${
+                    className={`flex flex-col items-center justify-center px-3 py-2.5 text-[12px] font-medium border-b-[3px] transition-colors whitespace-nowrap ${
                       isActive
                         ? "bg-[var(--gov-nav-hover)] border-[var(--gov-accent)]"
                         : "border-transparent hover:bg-[var(--gov-nav-hover)]"
@@ -131,7 +136,7 @@ export const Header = () => {
                 );
               })}
             </div>
-            <div className="flex items-center gap-2 pr-4 text-[12px]">
+            <div className="flex items-center gap-2 pr-4 text-[12px] shrink-0">
               {activeCount > 0 && (
                 <span className="bg-[var(--gov-danger)] px-2.5 py-1 rounded font-semibold flex items-center gap-1.5">
                   <Bell className="w-3.5 h-3.5" /> {activeCount} {t("activeAlerts")}
@@ -152,7 +157,7 @@ export const Header = () => {
             className="absolute inset-0 bg-black/50"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute left-0 top-0 bottom-0 w-72 bg-white shadow-xl">
+          <div className="absolute left-0 top-0 bottom-0 w-72 bg-white shadow-xl overflow-y-auto">
             <div className="bg-[var(--gov-primary)] text-white p-4 flex justify-between items-center">
               <span className="font-semibold text-sm">Menu</span>
               <button type="button" onClick={() => setMobileOpen(false)} aria-label="Close menu">

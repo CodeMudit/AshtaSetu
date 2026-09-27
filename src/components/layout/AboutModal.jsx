@@ -11,7 +11,10 @@ export const AboutModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50"
+      onClick={onClose}
+    >
       <div
         className="bg-white border border-[var(--gov-border)] w-full max-w-2xl max-h-[85vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
@@ -29,15 +32,25 @@ export const AboutModal = ({ isOpen, onClose }) => {
 
         <div className="p-4 overflow-y-auto text-[13px] text-[var(--gov-text-secondary)] leading-relaxed space-y-3">
           <p>
-            EvoGuard is a prototype early-warning and monitoring platform developed for the Smart India Hackathon (SIH26001).
-            It demonstrates real-time landslide and slope-failure risk monitoring for the North Eastern Region using simulated
-            rainfall, soil-moisture, satellite and field-report data.
+            EvoGuard is a prototype AI-powered Smart Logistics and Accessibility Intelligence Platform
+            developed for the Smart India Hackathon (SIH26002) under the Ministry of Development of
+            North Eastern Region (MDoNER). It provides real-time road and bridge accessibility monitoring,
+            predictive disruption alerts, AI-based alternate route suggestions, GPS tracking of vehicles
+            carrying essential commodities (medicines, food supplies, agricultural produce, construction
+            materials), and centralized logistics dashboards for the North Eastern Region.
           </p>
           <p>
-            This is a student/hackathon prototype. All telemetry, alerts and risk scores currently shown are simulated for demonstration purposes and must not be treated as operational or official advisories.
+            The platform is designed to strengthen regional connectivity, reduce supply-chain disruptions,
+            support emergency response, and enable efficient planning and monitoring of logistics operations
+            across difficult terrain and weather-affected corridors in NER.
+          </p>
+          <p>
+            This is a student/hackathon prototype. All telemetry, vehicle positions, alerts and accessibility
+            scores currently shown are simulated for demonstration purposes and must not be treated as
+            operational or official advisories.
           </p>
           <p className="text-[12px] text-[var(--gov-text-muted)]">
-            NER-DRR Prototype · SIH26001 · Simulated data only
+            MDoNER Prototype · SIH26002 · Simulated data only
           </p>
         </div>
 

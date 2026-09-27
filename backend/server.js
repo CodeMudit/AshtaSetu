@@ -9,6 +9,7 @@ import reportsRoutes from './routes/reports.js';
 import alertsRoutes from './routes/alerts.js';
 import riskRoutes from './routes/risk.js';
 import mapIntelligenceRoutes from './routes/mapIntelligence.js';
+import vehiclesRoutes from './routes/vehicles.js';   // NEW
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,17 +27,18 @@ app.use('/api/reports', reportsRoutes);
 app.use('/api/alerts', alertsRoutes);
 app.use('/api/risk', riskRoutes);
 app.use('/api/map', mapIntelligenceRoutes);
+app.use('/api/vehicles', vehiclesRoutes);          // NEW
 
 // Health check
 app.get('/api/health', (req, res) => {
-    res.json({ success: true, status: 'ok', timestamp: new Date() });
+  res.json({ success: true, status: 'ok', timestamp: new Date() });
 });
 
-// JSON 404 catch-all for unhandled API routes
+// JSON 404 catch-all
 app.use('/api', (req, res) => {
-    res.status(404).json({ success: false, error: 'API route not found' });
+  res.status(404).json({ success: false, error: 'API route not found' });
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Backend server running on http://0.0.0.0:${PORT}`);
+  console.log(`Backend server running on http://0.0.0.0:${PORT}`);
 });

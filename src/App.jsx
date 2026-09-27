@@ -7,16 +7,17 @@ import { NERMapBackground } from "./components/layout/NERMapBackground";
 import { ToastContainer } from "./components/common/Toast";
 
 import { HomeDashboard } from "./pages/HomeDashboard";
-import { MLPredictionsPage } from "./pages/MLPredictionsPage";
+import { RouteOptimizationPage } from "./pages/RouteOptimizationPage";
 import { ApiDataPage } from "./pages/ApiDataPage";
 import { AnalyticsPage } from "./pages/AnalyticsPage";
 import { AlertsPage } from "./pages/AlertsPage";
 import { ReportsPage } from "./pages/ReportsPage";
-import { HazardZonesPage } from "./pages/HazardZonesPage";
+import { AccessibilityMapPage } from "./pages/AccessibilityMapPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { FieldAppPage } from "./pages/FieldAppPage";
 import { ArchivePage } from "./pages/ArchivePage";
+import { VehicleTrackingPage } from "./pages/VehicleTrackingPage";
 
 const MainContent = () => {
   const { activePage } = useApp();
@@ -28,8 +29,10 @@ const MainContent = () => {
         return <HomeDashboard />;
       case "watchlist":
         return <HomeDashboard viewMode="watchlist" />;
-      case "impact":
-        return <HazardZonesPage />;
+      case "accessibility":
+        return <AccessibilityMapPage />;
+      case "vehicles":
+        return <VehicleTrackingPage />;
       case "sources":
         return <ApiDataPage />;
       case "field-ops":
@@ -37,7 +40,7 @@ const MainContent = () => {
       case "analytics":
         return (
           <div className="w-full px-3 md:px-4 lg:px-5 py-3 space-y-4 relative z-10">
-            <MLPredictionsPage />
+            <RouteOptimizationPage />
             <AnalyticsPage />
           </div>
         );
