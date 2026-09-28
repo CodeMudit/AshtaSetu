@@ -20,7 +20,7 @@ export const AboutModal = ({ isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="bg-[var(--gov-navy)] text-white px-3 py-2 flex justify-between items-center">
-          <h2 className="text-[14px] font-bold">About EvoGuard</h2>
+          <h2 className="text-[14px] font-bold">About AshtaSetu</h2>
           <button
             onClick={onClose}
             className="w-7 h-7 flex items-center justify-center bg-white/20 hover:bg-white/30 text-lg leading-none"
@@ -32,7 +32,7 @@ export const AboutModal = ({ isOpen, onClose }) => {
 
         <div className="p-4 overflow-y-auto text-[13px] text-[var(--gov-text-secondary)] leading-relaxed space-y-3">
           <p>
-            EvoGuard is a prototype AI-powered Smart Logistics and Accessibility Intelligence Platform
+            AshtaSetu is a prototype AI-powered Smart Logistics and Accessibility Intelligence Platform
             developed for the Smart India Hackathon (SIH26002) under the Ministry of Development of
             North Eastern Region (MDoNER). It provides real-time road and bridge accessibility monitoring,
             predictive disruption alerts, AI-based alternate route suggestions, GPS tracking of vehicles

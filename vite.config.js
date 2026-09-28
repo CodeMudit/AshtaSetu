@@ -45,8 +45,8 @@ export default defineConfig({
         ]
       },
       manifest: {
-        name: 'EvoGuard - NER Landslide Hazard Monitoring',
-        short_name: 'EvoGuard',
+        name: 'AshtaSetu - NER Landslide Hazard Monitoring',
+        short_name: 'AshtaSetu',
         description: 'AI-driven situational awareness and disaster management portal',
         theme_color: '#0f172a',
         icons: [

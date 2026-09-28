@@ -45,17 +45,17 @@ export const AppProvider = ({ children }) => {
   const [lastRefreshedAt, setLastRefreshedAt] = useState(new Date().toLocaleTimeString());
 
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("evoguard_theme") || "dark";
+    return localStorage.getItem("AshtaSetu_theme") || "dark";
   });
-  const [fontSize, setFontSize] = useState(() => localStorage.getItem("evoguard_fontsize") || "16px");
-  const [contrast, setContrast] = useState(() => Number(localStorage.getItem("evoguard_contrast")) || 1);
+  const [fontSize, setFontSize] = useState(() => localStorage.getItem("AshtaSetu_fontsize") || "16px");
+  const [contrast, setContrast] = useState(() => Number(localStorage.getItem("AshtaSetu_contrast")) || 1);
   const [toasts, setToasts] = useState([]);
 
   // Theme & Accessibility synchronization effect
   useEffect(() => {
-    localStorage.setItem("evoguard_theme", theme);
-    localStorage.setItem("evoguard_fontsize", fontSize);
-    localStorage.setItem("evoguard_contrast", contrast.toString());
+    localStorage.setItem("AshtaSetu_theme", theme);
+    localStorage.setItem("AshtaSetu_fontsize", fontSize);
+    localStorage.setItem("AshtaSetu_contrast", contrast.toString());
 
     document.documentElement.style.setProperty("--base-font-size", fontSize);
     document.documentElement.style.setProperty("--base-contrast", contrast);

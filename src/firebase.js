@@ -1,5 +1,5 @@
 // Firebase Initialization
-// EvoGuard — Firebase Realtime Database
+// AshtaSetu — Firebase Realtime Database
 // Fill in VITE_FIREBASE_* env vars in .env.local
 
 import { initializeApp } from "firebase/app";

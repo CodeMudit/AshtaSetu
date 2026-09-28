@@ -67,7 +67,7 @@ router.post('/predict', (req, res) => {
         factors,
         suggestAlternate,
         estimatedDelayMin,
-        model: "EvoGuard Logistics Disruption Fusion Engine (Deterministic Prototype)",
+        model: "AshtaSetu Logistics Disruption Fusion Engine (Deterministic Prototype)",
         modelStatus: "DERIVED PROTOTYPE",
         timestamp: new Date().toISOString(),
       },

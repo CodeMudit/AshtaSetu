@@ -22,7 +22,7 @@ export const Footer = () => {
       </div>
       <div className="border-t border-white/15">
         <div className="w-full px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-[12px] text-white/75">
-          <span>© {new Date().getFullYear()} EvoGuard · Prototype system with simulated data</span>
+          <span>© {new Date().getFullYear()} AshtaSetu · Prototype system with simulated data</span>
           <span>Built for operational situational awareness in the NER</span>
         </div>
       </div>

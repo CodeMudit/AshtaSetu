@@ -1,10 +1,10 @@
-# EvoGuard: AI-Based Smart Logistics & Accessibility Intelligence Platform for NER
+# AshtaSetu: AI-Based Smart Logistics & Accessibility Intelligence Platform for NER
 
 **SIH26002 Prototype · Ministry of Development of North Eastern Region (MDoNER)**
 
 ## Project Purpose
 
-EvoGuard is an AI-powered Smart Logistics and Accessibility Intelligence Platform developed for the Smart India Hackathon (SIH26002). It addresses the unique logistics and connectivity challenges of the North Eastern Region (NER) caused by difficult terrain, extreme weather, landslides, floods, and limited transport infrastructure.
+AshtaSetu is an AI-powered Smart Logistics and Accessibility Intelligence Platform developed for the Smart India Hackathon (SIH26002). It addresses the unique logistics and connectivity challenges of the North Eastern Region (NER) caused by difficult terrain, extreme weather, landslides, floods, and limited transport infrastructure.
 
 The platform provides real-time road/bridge accessibility monitoring, predictive disruption alerts, AI-based alternate route suggestions, GPS vehicle tracking for essential commodities, and centralized logistics dashboards for district administrations and field officials.
 

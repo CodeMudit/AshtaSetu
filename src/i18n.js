@@ -2,21 +2,21 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 /**
- * EvoGuard — NER multilingual resources
+ * AshtaSetu — NER multilingual resources
  * SIH26002 · Smart Logistics & Accessibility Intelligence Platform
  * Languages: English, Hindi, Assamese + other NER languages
  */
 
 const commonEn = {
   // Brand
-  appName: "EvoGuard",
+  appName: "AshtaSetu",
   appTagline: "Smart Logistics & Accessibility Intelligence Platform",
   prototypeBadge: "Prototype — simulated data",
   sihLabel: "MDoNER Prototype · SIH26002",
 
   // Nav
   nav_home: "Overview",
-  nav_about: "About EvoGuard",
+  nav_about: "About AshtaSetu",
   nav_dashboard: "Logistics Monitor",
   nav_accessibility: "Route Accessibility",
   nav_vehicles: "Vehicle Tracking",
@@ -198,9 +198,9 @@ const commonEn = {
     "Use the offline-capable field reporting tool when network is weak or unavailable. Reports queue locally and sync when connectivity returns.",
 
   // About
-  aboutTitle: "About EvoGuard",
+  aboutTitle: "About AshtaSetu",
   aboutBody:
-    "EvoGuard is a prototype AI-powered Smart Logistics and Accessibility Intelligence Platform developed for the Smart India Hackathon (SIH26002) under the Ministry of Development of North Eastern Region (MDoNER). It provides real-time road accessibility monitoring, predictive disruption alerts, AI-based alternate routing, and GPS tracking of essential supplies across the North Eastern Region.",
+    "AshtaSetu is a prototype AI-powered Smart Logistics and Accessibility Intelligence Platform developed for the Smart India Hackathon (SIH26002) under the Ministry of Development of North Eastern Region (MDoNER). It provides real-time road accessibility monitoring, predictive disruption alerts, AI-based alternate routing, and GPS tracking of essential supplies across the North Eastern Region.",
   aboutDisclaimer:
     "This is a student/hackathon prototype. All telemetry, vehicle positions, alerts and accessibility scores shown are simulated and must not be treated as operational or official advisories.",
 
@@ -210,7 +210,7 @@ const commonEn = {
   terms: "Terms",
   disclaimer: "Disclaimer",
   contact: "Contact",
-  copyright: "© 2026 EvoGuard · SIH26002 Team · Prototype — simulated data",
+  copyright: "© 2026 AshtaSetu · SIH26002 Team · Prototype — simulated data",
 
   // Status bar
   rain: "Rain",
